@@ -1,0 +1,5 @@
+label, input, button {
+  display: flex;
+  margin-top: 5px;
+  margin-left: 5px;
+}
