@@ -14,7 +14,7 @@ const INITAL_STATE = {
 
 export default function Login() {
   const [user, setUser] = useState<UserType>(INITAL_STATE);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   const { name } = user;
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement
@@ -35,43 +35,40 @@ export default function Login() {
 
   const handleSubmitLogin = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (isLoginValid()) {
-      setLoading(false);
-      const username = await createUser(user);
-      if (username) {
-        setTimeout(() => {
-          navigate('/search');
-        }, 1000);
-      }
-    }
+    setLoading(true);
+    await createUser(user);
+    navigate('/search');
+    setLoading(false);
   };
+
+  if (loading) {
+    return (
+      <Loading />
+    );
+  }
 
   return (
     <div>
       <h1>TrybeTunes</h1>
-      {loading
-        ? (
-          <form onSubmit={ handleSubmitLogin }>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Nome"
-              required
-              value={ name }
-              onChange={ handleChange }
-              data-testid="login-name-input"
-            />
-            <button
-              type="submit"
-              data-testid="login-submit-button"
-              disabled={ !isLoginValid() }
-            >
-              ENTRAR
-            </button>
-          </form>
-        ) : <Loading />}
-
+      <form onSubmit={ handleSubmitLogin }>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Nome"
+          required
+          value={ name }
+          onChange={ handleChange }
+          data-testid="login-name-input"
+        />
+        <button
+          type="submit"
+          data-testid="login-submit-button"
+          disabled={ !isLoginValid() }
+        >
+          ENTRAR
+        </button>
+      </form>
     </div>
   );
 }
