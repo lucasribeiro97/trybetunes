@@ -1,11 +1,25 @@
 import { useState } from 'react';
 import { SongType } from '../../types';
+import { addSong, removeSong } from '../../services/favoriteSongsAPI';
 
 export default function MusicCard({ trackName, previewUrl, trackId } : SongType) {
   const [favorite, setFavorite] = useState(false);
 
-  function handleFavorite() {
-    setFavorite(!favorite);
+  function handleFavoriteChange(event: { target: { checked: any; }; }) {
+    const isFavorite = event.target.checked;
+    setFavorite(isFavorite);
+
+    const songData = {
+      trackName,
+      previewUrl,
+      trackId,
+    };
+
+    if (isFavorite) {
+      addSong(songData);
+    } else {
+      removeSong(songData);
+    }
   }
 
   return (
@@ -17,14 +31,16 @@ export default function MusicCard({ trackName, previewUrl, trackId } : SongType)
         {' '}
         <code>audio</code>
       </audio>
-      <button
-        data-testid={ `checkbox-music-${trackId}` }
-        onClick={ handleFavorite }
-      >
+      <label data-testid={ `checkbox-music-${trackId}` }>
         {favorite
           ? <img src="/src/images/checked_heart.png" alt="favorite" />
           : <img src="/src/images/empty_heart.png" alt="favorite" />}
-      </button>
+        <input
+          type="checkbox"
+          checked={ favorite }
+          onChange={ handleFavoriteChange }
+        />
+      </label>
     </div>
   );
 }
