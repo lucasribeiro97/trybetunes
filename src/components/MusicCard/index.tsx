@@ -2,9 +2,6 @@ import { useEffect, useState } from 'react';
 import { SongType } from '../../types';
 import { addSong, getFavoriteSongs, removeSong } from '../../services/favoriteSongsAPI';
 
-const checkedHeart = '/src/images/checked_heart.png';
-const emptyHeart = '/src/images/empty_heart.png';
-
 export default function MusicCard(song : SongType & { onRemove: () => void }) {
   const { trackName, previewUrl, trackId, onRemove } = song;
   const [favorite, setFavorite] = useState(false);
@@ -46,10 +43,9 @@ export default function MusicCard(song : SongType & { onRemove: () => void }) {
           checked={ favorite }
           onChange={ handleFavoriteChange }
         />
-        <img
-          src={ favorite ? checkedHeart : emptyHeart }
-          alt="favorite"
-        />
+        {favorite
+          ? <img src="/src/images/checked_heart.png" alt="favorite" />
+          : <img src="/src/images/empty_heart.png" alt="favorite" />}
       </label>
     </div>
   );
