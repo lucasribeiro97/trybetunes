@@ -11,6 +11,10 @@ export default function Album() {
   const [musics, setMusics] = useState<SongType[]>([]);
   const { id } = useParams();
 
+  const favoriteMusics = () => {
+    setLoading(false);
+  };
+
   useEffect(() => {
     const getAlbum = async () => {
       const data = await getMusics(id);
@@ -37,6 +41,7 @@ export default function Album() {
           trackName={ music.trackName }
           previewUrl={ music.previewUrl }
           key={ music.trackId }
+          onRemove={ () => favoriteMusics() }
         />
       ))}
     </div>
