@@ -14,7 +14,7 @@ export default function Header() {
       setLoading(false);
     };
     getUsername();
-  });
+  }, []);
 
   if (loading) {
     return (
@@ -25,19 +25,21 @@ export default function Header() {
   return (
     <div>
       <header data-testid="header-component">
-        <NavLink to="/search" data-testid="link-to-search">
-          Pesquisa
-        </NavLink>
-        <NavLink to="/favorites" data-testid="link-to-favorites">
-          Favoritas
-        </NavLink>
-        <NavLink to="/profile" data-testid="link-to-profile">
-          Perfil
-        </NavLink>
+        <span data-testid="header-user-name">
+          {username}
+        </span>
+        <div>
+          <NavLink to="/search" data-testid="link-to-search">
+            Pesquisa
+          </NavLink>
+          <NavLink to="/favorites" data-testid="link-to-favorites">
+            Favoritas
+          </NavLink>
+          <NavLink to="/profile" data-testid="link-to-profile">
+            Perfil
+          </NavLink>
+        </div>
       </header>
-      <h2 data-testid="header-user-name">
-        {`Olá, ${username}`}
-      </h2>
     </div>
   );
 }
