@@ -48,27 +48,34 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <h1>TrybeTunes</h1>
-      <form onSubmit={ handleSubmitLogin }>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Nome"
-          required
-          value={ name }
-          onChange={ handleChange }
-          data-testid="login-name-input"
-        />
-        <button
-          type="submit"
-          data-testid="login-submit-button"
-          disabled={ !isLoginValid() }
-        >
-          ENTRAR
-        </button>
-      </form>
+    <div className="login-page">
+      <div className="login-container">
+        <h1>
+          <span className="trybe">trybe</span>
+          <span className="tunes">tunes</span>
+        </h1>
+        <form className="form-login" onSubmit={ handleSubmitLogin }>
+          <input
+            className="input-name"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="qual é o seu nome?"
+            required
+            value={ name }
+            onChange={ handleChange }
+            data-testid="login-name-input"
+          />
+          <button
+            className="submit-button"
+            type="submit"
+            data-testid="login-submit-button"
+            disabled={ !isLoginValid() }
+          >
+            ENTRAR
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
