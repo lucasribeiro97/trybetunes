@@ -6,6 +6,7 @@ import Layout from './components/Layout';
 import Favorites from './components/Favorites';
 import Profile from './components/Profile';
 import ProfileEdit from './components/ProfileEdit';
+import './app.css';
 
 function App() {
   return (

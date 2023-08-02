@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Loading from '../Loading';
 import searchAlbumsAPI from '../../services/searchAlbumsAPI';
 import { AlbumType } from '../../types';
+import './search.css';
 
 export default function Search() {
   const [artist, setArtist] = useState<string>('');
@@ -37,22 +38,23 @@ export default function Search() {
       {loading
         ? <Loading />
         : (
-          <form>
+          <form className="search">
             <input
               type="text"
               name="artist"
               id="artist"
-              placeholder="Nome do artista"
+              placeholder="NOME DO ARTISTA"
               data-testid="search-artist-input"
               value={ inputArtist }
               onChange={ handleChangeArtist }
+              className="input-search"
             />
             <button
               data-testid="search-artist-button"
               disabled={ !isArtistValid() }
               onClick={ handleSearchArtist }
             >
-              Procurar
+              PROCURAR
             </button>
           </form>
         )}

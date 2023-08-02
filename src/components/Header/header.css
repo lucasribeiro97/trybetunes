@@ -1,0 +1,8 @@
+.header-container {
+  background-color: white;
+}
+
+.icons-container {
+  display: flex;
+  flex-direction: column;
+}
