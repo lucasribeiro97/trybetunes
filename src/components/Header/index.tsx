@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { FaSearch } from 'react-icons/fa';
+import { BsStarFill } from 'react-icons/bs';
+import { MdAccountCircle } from 'react-icons/md';
 import { getUser } from '../../services/userAPI';
 import Loading from '../Loading';
 import './header.css';
@@ -26,20 +29,48 @@ export default function Header() {
   return (
     <div>
       <header data-testid="header-component" className="header-container">
+        <h1 className="title">
+          <span className="trybe">trybe</span>
+          <span className="tunes">tunes</span>
+        </h1>
         <div className="icons-container">
-          <NavLink to="/search" data-testid="link-to-search">
+          <NavLink
+            to="/search"
+            data-testid="link-to-search"
+            className="search-link"
+          >
+            <FaSearch className="search-icon" />
             Pesquisa
           </NavLink>
-          <NavLink to="/favorites" data-testid="link-to-favorites">
+          <NavLink
+            to="/favorites"
+            data-testid="link-to-favorites"
+            className="favorites-link"
+          >
+            <BsStarFill className="favorites-icon" />
             Favoritas
           </NavLink>
-          <NavLink to="/profile" data-testid="link-to-profile">
+          <NavLink
+            to="/profile"
+            data-testid="link-to-profile"
+            className="profile-link"
+          >
+            <MdAccountCircle className="profile-icon" />
             Perfil
           </NavLink>
         </div>
-        <span data-testid="header-user-name">
-          {username}
-        </span>
+        <div className="profile-view">
+          <div className="imagePreview">
+            <img
+              className="previewImage"
+              src="/src/images/imagem-perfil.jpg"
+              alt="imagem do perfil"
+            />
+          </div>
+          <span data-testid="header-user-name" className="username">
+            {username}
+          </span>
+        </div>
       </header>
     </div>
   );

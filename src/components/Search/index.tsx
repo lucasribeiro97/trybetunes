@@ -34,7 +34,7 @@ export default function Search() {
   };
 
   return (
-    <div>
+    <div className="search-container">
       {loading
         ? <Loading />
         : (
@@ -78,7 +78,7 @@ export default function Search() {
           </ul>
         </div>
       ) : (
-        <p>Nenhum álbum foi encontrado</p>
+        <p className="not-found">Nenhum álbum foi encontrado</p>
       )}
     </div>
   );

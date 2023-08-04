@@ -1,45 +1,48 @@
 .login-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
   align-items: center;
   background-color: white;
-  width: 750px;
-  height: 450px;
-  margin: auto;
-  margin-top: 135px;
-}
-
-span.trybe, span.tunes {
   display: flex;
   flex-direction: column;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-style: italic;
-  font-size: 45px;
+  height: 450px;
+  justify-content: center;
+  margin: auto;
+  margin-top: 135px;
+  width: 750px;
 }
 
-span.trybe {
+.trybe, .tunes {
+  display: flex;
+  flex-direction: column;
+  font-family: ' Helvetica ' , sans-serif;
+  font-size: 45px;
+  font-style: italic;
+}
+
+.trybe {
   color: aqua;
   margin-right: 45px;
 }
 
-span.tunes {
+.tunes {
+  bottom: 15px;
   color: #003be5;
+  font-weight: initial;
   margin-left: 45px;
+  position: relative;
 }
 
 .form-login {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .input-name, .submit-button {
-  margin: 5px;
-  width: 400px;
-  height: 40px;
   border-radius: 100px;
+  height: 40px;
+  margin: 5px;
   text-align: center;
+  width: 400px;
 }
 
 .input-name {
@@ -51,6 +54,6 @@ span.tunes {
 }
 
 .submit-button {
-  color: #FFFF;
   background-color: #003be5;
+  color: white;
 }

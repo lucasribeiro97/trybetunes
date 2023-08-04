@@ -1,8 +1,69 @@
 .header-container {
+  align-items: center;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 18rem;
+}
+
+.title {
+  margin-top: 50px;
 }
 
 .icons-container {
   display: flex;
   flex-direction: column;
+  font-family: ' Planc Medium ' , sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.4px;
+  margin: auto;
+  margin-top: 130px;
+  padding-right: 25px;
+  position: relative;
+}
+
+.search-link, .favorites-link, .profile-link {
+  color: rgb(85, 85, 85);
+  display: flex;
+  margin-bottom: 75px;
+  text-decoration: none;
+}
+
+.search-icon, .favorites-icon, .profile-icon {
+  color: gray;
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+.username {
+  color: rgb(54, 54, 54);
+  font-family: ' Planc Medium ' , sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.25px;
+  padding-top: 20px;
+  position: relative;
+}
+
+.profile-view {
+  display: flex;
+  margin: auto;
+  margin-bottom: 45px;
+  margin-left: 35px;
+}
+
+.imagePreview {
+  border: 2px; /* Borda para destacar a área circular */
+  border-radius: 50%; /* Define o formato circular */
+  display: flex;
+  height: 50px;
+  margin-right: 25px;
+  overflow: hidden; /* Esconde a parte da imagem fora do círculo */
+  width: 50px;
+}
+
+.previewImage {
+  height: 100%;
+  object-fit: cover; /* Redimensiona a imagem para caber dentro do espaço circular */
+  width: 100%;
 }
