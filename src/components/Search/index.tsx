@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { FaTimes } from 'react-icons/fa';
 import Loading from '../Loading';
 import searchAlbumsAPI from '../../services/searchAlbumsAPI';
 import { AlbumType } from '../../types';
@@ -60,7 +61,7 @@ export default function Search() {
         )}
 
       {searchResult && albums.length > 0 ? (
-        <div>
+        <div className="search-result">
           <p>
             {`Resultado de álbuns de: ${artist}`}
           </p>
@@ -78,7 +79,10 @@ export default function Search() {
           </ul>
         </div>
       ) : (
-        <p className="not-found">Nenhum álbum foi encontrado</p>
+        <div className="not-found">
+          <FaTimes className="error-icon" />
+          <p>Nenhum álbum foi encontrado</p>
+        </div>
       )}
     </div>
   );

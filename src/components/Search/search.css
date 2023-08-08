@@ -1,3 +1,8 @@
+.search-container {
+  background-color: lightgray;
+  height: 100vh;
+}
+
 .search {
   align-items: center;
   background: linear-gradient(to right, #6fe7ef, #003be5);
@@ -32,5 +37,16 @@
 }
 
 .not-found {
+  color: #c0c3c9;
+  font-family: ' Epilogue' , sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  margin-top: 150px;
   text-align: center;
+}
+
+.error-icon {
+  color: #57b3b9;
+  height: 69.04;
+  width: 69.04;
 }

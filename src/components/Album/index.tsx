@@ -4,6 +4,7 @@ import getMusics from '../../services/musicsAPI';
 import Loading from '../Loading';
 import MusicCard from '../MusicCard';
 import { AlbumType, SongType } from '../../types';
+import './album.css';
 
 export default function Album() {
   const [loading, setLoading] = useState(true);
@@ -31,7 +32,7 @@ export default function Album() {
   }
 
   return (
-    <div>
+    <div className="album-container">
       <h2 data-testid="artist-name">{ artist?.artistName }</h2>
       <h3 data-testid="album-name">{ artist?.collectionName }</h3>
 
